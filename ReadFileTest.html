@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset = 'UTF-8'>
+        <meta name = "viewport" content = "width = device-width, initial-scale = 1.0">
+        <title>ReadFileTest</title>
+        <script src = 'https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+        <script type = 'text/javascript'>
+            path = ['https://api.myjson.com/bins/vpfcy', 'https://api.myjson.com/bins/ooif6', 'https://api.myjson.com/bins/1e809u'];
+            $(function() {
+                for (i in path) {
+                    $.getJSON(path[i], function(data) {
+                        for (index in data) {
+                            var s = '<p>' + data[index].dish + ': ' + data[index].amount + '</p>';
+                            $('div').append(s);
+                        }
+                    });
+                }
+            });
+        </script>
+    </head>
+    <body>
+        <div></div>
+    </body>
+</html>
