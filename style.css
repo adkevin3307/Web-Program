@@ -4,3 +4,11 @@ head, body {
 form {
     text-align: center;
 }
+.scroll_div {
+    width: 30%;
+    height: 500px;
+    overflow: scroll;
+}
+a {
+    text-decoration: none;
+}
