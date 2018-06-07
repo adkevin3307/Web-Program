@@ -6,12 +6,6 @@
         <meta name = "viewport" content = "width = device-width, initial-scale = 1.0">
         <title>Random</title>
         <link rel = "stylesheet" type = "text/css" href = "./style.css">
-        <style>
-            .last {
-                text-align: center;
-                font-size: 50px;
-            }
-        </style>
         <script>
             var list, result, person;
             var amount, enter, random;
@@ -58,16 +52,19 @@
         </script>
     </head>
     <body>
-        <h1>選人</h1>
+        <br>
+        <div class = 'header'>出門囉~</div>
+        <br>
         <form action = '#'>
             <div>
                 人數: <input id = 'amount' type = 'text' value = '1'>
                 <input id = 'enter' type = 'button' value = '確定'>
                 <input id = 'random' type = 'button' value = '選人'>
             </div>
-            <br>
-            <div id = 'list' class = 'scroll_div'></div>
         </form>
-        <div id = 'result' class = 'last'></div>
+        <br>
+        <div id = 'list' class = 'scroll_div' style = 'margin: 0px auto'></div>
+        <br>
+        <div id = 'result' class = 'last' style = 'text-align: center; font-size: 40px;'></div>
     </body>
 </html>
