@@ -40,7 +40,6 @@ nav ul {
 nav ul li {
     height: 30px;
     line-height: 30px;
-    margin: 0px auto;
     background-color: rgb(145, 145, 145);
     width: 100%;
     color: black;
@@ -50,16 +49,11 @@ nav ul li {
         width: 100%;
     }
 }
-table {
-    z-index: 1;
-    width: 40%;
-    text-align: center;
-    position: absolute;
-    top: 220px;
-    left: 30%;
-}
 td {
     border: 1px solid black;
+}
+#total_select {
+    width: 100%;
 }
 .modify_ul {
     display: none;
@@ -67,4 +61,14 @@ td {
     position: relative;
     top: 0px;
     z-index: 5;
+    background-color: rgb(145, 145, 145);
+}
+#menu, #introduce {
+    display: none;
+    z-index: 1;
+    width: 40%;
+    text-align: center;
+    position: absolute;
+    top: 220px;
+    left: 30%;
 }
