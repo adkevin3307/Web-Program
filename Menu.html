@@ -42,9 +42,14 @@
                     }
                 );
                 $('li').click(changeMenu);
+                $('#comment').click(function() {
+                    var s = '<input id = "1" type = "button" value = "You Press It">';
+                    $('#introduce').append(s);
+                });
             });
 
             function changeMenu(e) {
+                $('#introduce').show();
                 $.getJSON('https://api.myjson.com/bins/' + jsonPath[e.target.id], function(data) {
                     $("#menu").html("");
                     var content = "<tr><th>菜名</th><th>價錢</th><th>菜名</th><th>價錢</th></tr>";
@@ -52,9 +57,9 @@
                         content += 
                             "<tr>" + 
                             "<td>" + data[index].dish + "</td>" + 
-                            "<td>" + data[index].amount + "</td>" + 
+                            "<td style = 'background-color: powderblue'>" + data[index].amount + "</td>" + 
                             "<td>" + data[index + 1].dish + "</td>" + 
-                            "<td>" + data[index + 1].amount + "</td>" + 
+                            "<td style = 'background-color: powderblue'>" + data[index + 1].amount + "</td>" + 
                             "</tr>";
                     }
                     content += '<tr style = "height: 20px;"></tr>';
@@ -72,7 +77,7 @@
             </div>
             <br>
         </div>
-        <div style = 'z-index: 10;'>
+        <div>
             <nav>北寧路
                 <ul>
                     <li></li>
@@ -102,8 +107,11 @@
                 </ul>
             </nav>
         </div>
-        <div style = 'z-index: 1;'>
+        <div>
             <table id = "menu"></table>
+            <div id = 'introduce' style = 'position: absolute; right: 20px; top: 20px; display: none;'>
+                <input id = 'comment' type = 'button' value = '本組愚見' style = 'height: 50px; width: 100px'>
+            </div>
         </div>
     </body>
 </html>
