@@ -3,77 +3,107 @@
         <meta charset = "utf-8">
         <title>Menu</title>
         <link rel = "stylesheet" type = "text/css" href = "./style.css">
-        <style type = "text/css">
-            nav {
-                font-weight: bold;
-                color: white;
-                border: 2px solid Navy;
-                text-align: center;
-                width: 25%;
-                box-sizing: border-box;
-                float:left;
-                background-color: Navy;
+        <script src = "https://code.jquery.com/jquery-1.12.3.min.js"></script>
+        <script>
+            var jsonPath = {
+                "海大燒臘": "vpfcy",
+                "金園": "ooif6",
+                "818": "1e809u",
+                "八方雲集": "x0epu",
+                "豚將": "xlubm",
+                "三媽": "s8xvm",
+                "佬地方牛排": "1apdmq",
+                "佳汶麵食館": "nhh1e",
+                "牛餃鏖鋒": "o51sy",
+                "陳家麵店": "cttb6",
+                "晶彩": "17scrm",
+                "寶妹": "18dsde",
+                "阿水飯麵館": "13mbj6",
+                "家薌牛肉麵": "1a636q",
+                "涵館": "14t6qq",
+                "港式燒臘便當": "uxe3m"
             }
-            nav ul {
-                display: none;
-                list-style: none;
-                margin: 0;
-                padding: 0;
+
+            $(function() {
+                $('nav').hover(
+                    function() {
+                        $(this).children().show();
+                    },
+                    function() {
+                        $(this).children().hide();
+                    }
+                );
+                $('nav ul li').hover(
+                    function() {
+                        $(this).css('background-color', 'gray');
+                    },
+                    function() {
+                        $(this).css('background-color', 'white');
+                    }
+                );
+                $('li').click(changeMenu);
+            });
+
+            function changeMenu(e) {
+                $.getJSON('https://api.myjson.com/bins/' + jsonPath[e.target.id], function(data) {
+                    $("#menu").html("");
+                    var content = "<tr><th>菜名</th><th>價錢</th><th>菜名</th><th>價錢</th></tr>";
+                    for(var index = 0; index < data.length - 1; index += 2) {
+                        content += 
+                            "<tr>" + 
+                            "<td>" + data[index].dish + "</td>" + 
+                            "<td>" + data[index].amount + "</td>" + 
+                            "<td>" + data[index + 1].dish + "</td>" + 
+                            "<td>" + data[index + 1].amount + "</td>" + 
+                            "</tr>";
+                    }
+                    content += '<tr style = "height: 20px;"></tr>';
+                    $("#menu").html(content);
+                });
             }
-            nav:hover ul {
-                display: block;
-            }
-            nav ul li {
-                border-top: 2px solid Navy;
-                background-color: white;
-                width: 100%;
-                color: black;
-            }
-            nav ul li:hover {
-                background-color: PowderBlue;
-            }
-            .toRandom {
-                text-align: right;
-            }
-            h1 {
-                text-align: center;
-            }
-            @media only screen and (max-width: 600px) {
-                nav {
-                    width:100%;
-                }
-            }
-        </style>
-        <script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
-        <script></script>
+        </script>
     </head>
     <body>
         <div>
             <br>
             <div class = 'header'>選餐囉~</div>
-            <div class = 'toRandom'><a href = "./Random.html">選人</a></div>
+            <div style = 'text-align: right; font-size: 20px'>
+                <a href = "./Random.html">選人</a>
+            </div>
             <br>
         </div>
-        <nav>北寧路
-            <ul>
-                <li></li>
-            </ul>
-        </nav>
-        <nav>祥豐街
-            <ul>
-                <li></li>
-            </ul>
-        </nav>
-        <nav>中正路
-            <ul>
-                <li></li>
-            </ul>
-        </nav>
-        <nav>新豐街
-            <ul>
-                <li></li>
-            </ul>
-        </nav>
-        <table id = "menu"></table>
+        <div style = 'z-index: 10;'>
+            <nav>北寧路
+                <ul>
+                    <li></li>
+                </ul>
+            </nav>
+            <nav>祥豐街
+                <ul>
+                    <li id = "阿水飯麵館">阿水飯麵館</li>
+                    <li id = "金園">金園</li>
+                    <li id = "家薌牛肉麵">家薌牛肉麵</li>
+                </ul>
+            </nav>
+            <nav>中正路
+                <ul>
+                    <li id = "818">捌壹捌麵館</li>
+                    <li id = "三媽">三媽臭臭鍋</li>
+                    <li id = "八方雲集">八方雲集</li>
+                    <li id = "涵館">涵館</li>
+                    <li id = "海大燒臘">海大燒臘</li>
+                    <li id = "佳汶麵食館">佳汶麵食館</li>
+                    <li id = "港式燒臘便當">港式燒臘便當</li>
+                </ul>
+            </nav>
+            <nav>新豐街
+                <ul>
+                    <li></li>
+                </ul>
+            </nav>
+        </div>
+        <div style = 'z-index: 1;'>
+            <table id = "menu"></table>
+        </div>
     </body>
 </html>

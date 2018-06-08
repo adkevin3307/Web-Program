@@ -6,55 +6,35 @@
         <meta name = "viewport" content = "width = device-width, initial-scale = 1.0">
         <title>Random</title>
         <link rel = "stylesheet" type = "text/css" href = "./style.css">
+        <script src = "https://code.jquery.com/jquery-1.12.3.min.js"></script>
         <script>
-            var list, result, person;
-            var amount, enter, random;
-
-            function generate()
-            {
-                list.innerHTML = '';
-                if (isNaN(amount.value)) window.alert('Please input number');
-                else {
-                    for (var i = 0; i < parseInt(amount.value); i++) {
+            $(function() {
+                $('#random').attr('disabled', true);
+                $('#enter').click(function() {
+                    $('#list').html('');
+                    $('#result').html('');
+                    if (isNaN($('#amount').val())) window.alert('Please input number');
+                    else {
                         var s = '';
-                        s += '<div>';
-                        s += '第' + (i + 1) + '人姓名: ';
-                        s += '<input id = "num' + i + '" type = "text" value = "Person' + (i + 1) + '">';
-                        s += '</div>';
-                        list.innerHTML += s;
+                        for (var i = 0; i < parseInt($('#amount').val()); i++) {
+                            s += '<div>';
+                            s += '第' + (i + 1) + '人姓名: ';
+                            s += '<input id = "num' + i + '" type = "text" value = "Person' + (i + 1) + '">';
+                            s += '</div>';
+                        }
+                        $('#list').html(s);
+                        $('#random').attr('disabled', false);
                     }
-                }
-                random.disabled = false;
-            }
-
-            function select()
-            {
-                if (isNaN(amount.value)) window.alert('Please input number');
-                else {
-                    person = document.getElementById('num' + Math.floor(Math.random() * amount.value));
-                    result.innerHTML = '當選人: ' + person.value;
-                }
-            }
-
-            function start()
-            {
-                list = document.getElementById('list');
-                amount = document.getElementById('amount');
-                enter = document.getElementById('enter');
-                random = document.getElementById('random');
-                result = document.getElementById('result');
-                enter.addEventListener('click', generate, false);
-                random.addEventListener('click', select, false);
-                random.disabled = true;
-            }
-
-            window.addEventListener('load', start, false);
+                });
+                $('#random').click(function() {
+                    if (isNaN($('#amount').val())) window.alert('Please input number');
+                    else $('#result').html($('#num' + Math.floor(Math.random() * $('#amount').val())).val());
+                });
+            });
         </script>
     </head>
     <body>
-        <br>
-        <div class = 'header'>出門囉~</div>
-        <br>
+        <br><div class = 'header'>出門囉~</div><br>
         <form action = '#'>
             <div>
                 人數: <input id = 'amount' type = 'text' value = '1'>
@@ -62,9 +42,7 @@
                 <input id = 'random' type = 'button' value = '選人'>
             </div>
         </form>
-        <br>
-        <div id = 'list' class = 'scroll_div' style = 'margin: 0px auto'></div>
-        <br>
-        <div id = 'result' class = 'last' style = 'text-align: center; font-size: 40px;'></div>
+        <br><div id = 'list' class = 'scroll_div'></div><br>
+        <div id = 'result' style = 'text-align: center; font-size: 40px;'></div>
     </body>
 </html>
