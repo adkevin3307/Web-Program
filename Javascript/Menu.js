@@ -43,10 +43,6 @@ $(function() {
 
     $('li').click(generateMenu);
 
-    $('#comment').click(function() {
-        window.alert('Not finish yet');
-    });
-
     function changeInformation(self, next) {
         $(self).on('click', function() {
             $(this).addClass('animated fadeOutLeft').one(animationEnd, function() {
