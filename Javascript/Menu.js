@@ -43,6 +43,15 @@ $(function() {
 
     $('li').click(generateMenu);
 
+    $('.to_another_page').first().click(function() {
+        localStorage.setItem('menu', $('.header').html());
+        window.location.href = './Choose.html';
+    });
+
+    $('#toRandom').click(function() {
+        window.location.href = './Random.html';
+    });
+
     function changeInformation(self, next) {
         $(self).on('click', function() {
             $(this).addClass('animated fadeOutLeft').one(animationEnd, function() {

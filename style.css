@@ -76,6 +76,19 @@ td {
     width: 40%;
     text-align: center;
     position: absolute;
-    top: 220px;
+    top: 260px;
     left: 30%;
+}
+.to_another_page {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+}
+#choosed {
+    width: 20%;
+    text-align: center;
+    position: absolute;
+    left: 60%;
+    top: 160px;
+    display: none;
 }

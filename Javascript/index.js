@@ -1,7 +1,7 @@
 var animationEnd = "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend";
 
 $(function() {
-    $('.Click_to_Menu').on('click', function() {
+    $(document).on('click', function() {
         $('.header').addClass('animated zoomOutDown').one(animationEnd, function() {
             $(this).hide().removeClass('animated zoomOutDown');
         });

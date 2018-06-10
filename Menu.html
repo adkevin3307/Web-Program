@@ -9,9 +9,12 @@
     </head>
     <body>
         <div>
-            <br><div class = 'header'>選餐囉</div>
-            <div style = 'text-align: right; font-size: 20px'>
-                <a href = "./Random.html">選人</a>
+            <br><div class = 'header'>吃飯的地方</div>
+            <div title = '來去選餐' style = 'display: inline-block;'>
+                <img src = 'Picture/Vegetable.jpg' alt = 'click to choose dish' class = 'to_another_page'>
+            </div>
+            <div title = '來去運動' style = 'display: inline-block;'>
+                <img src = 'Picture/Run.gif' alt = 'click to choose person' class = 'to_another_page' id = 'toRandom'>
             </div>
             <br>
         </div>
@@ -49,7 +52,9 @@
                 </div>
             </nav>
         </div>
-        <table id = "menu"></table>
-        <div id = 'introduce'>This will write some introduce for every restaurant</div>
+        <div title = '來去點他'>
+            <table id = "menu"></table>
+            <div id = 'introduce'>This will write some introduce for every restaurant</div>
+        </div>
     </body>
 </html>
