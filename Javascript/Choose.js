@@ -20,9 +20,7 @@ var jsonPath = {
 }
 
 $(function() {
-    $('.header').show().addClass('animated zoomInUp').one(animationEnd, function() {
-        $(this).removeClass('animated zoomInUp');
-    });
+    $('.header').fadeIn(2500);
     var sum = 0;
     if (localStorage.getItem('menu') != '吃飯的地方' && localStorage.getItem('menu') != null) generateMenu();
     $('#menu').click(function(e) {
