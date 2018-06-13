@@ -8,12 +8,12 @@
         <script>
             $(function() {
                 $.getJSON('./Json/818.json', function(data) {
-                    console.log(data.length);
+                    $('div').html(data[0].dish + ', ' + data[0].amount);
                 });
             });
         </script>
     </head>
     <body>
-        
+        <div></div>
     </body>
 </html>
