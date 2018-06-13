@@ -30,7 +30,7 @@ function generateMenu() {
         $('#menu').removeClass('animated fadeInLeft');
     });
     $('#menu').show();
-    $.getJSON('./Json/' + localStorage.getItem('menu'), function(data) {
+    $.getJSON('./Json/' + localStorage.getItem('menu') + '.json', function(data) {
         $("#menu").html("");
         var content = '<caption style = "font-size: 30px; font-weight: bold;">' + localStorage.getItem('menu') + '</caption>';
         content += "<tr><th>菜名</th><th>價錢</th><th>菜名</th><th>價錢</th></tr>";
