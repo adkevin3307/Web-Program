@@ -31,7 +31,7 @@ function generateMenu() {
     });
     $('#menu').show();
     $.getJSON('./Json/' + localStorage.getItem('menu') + '.json', function(data) {
-        $("#menu").html("");
+        $("#menu").html('');
         var content = '<caption style = "font-size: 30px; font-weight: bold;">' + localStorage.getItem('menu') + '</caption>';
         content += "<tr><th>菜名</th><th>價錢</th><th>菜名</th><th>價錢</th></tr>";
         for (var index = 0; index < data.length - 1; index += 2) {
