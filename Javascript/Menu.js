@@ -49,6 +49,7 @@ $(function() {
 });
 
 function generateMenu(e) {
+    console.log(e.target.id);
     $('.header').html(e.target.innerHTML);
     $('#menu').show();
     $('#introduce').hide();
