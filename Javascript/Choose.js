@@ -1,24 +1,5 @@
 var animationEnd = "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend";
 
-var jsonPath = {
-    "海大燒臘": "vpfcy",
-    "金園": "ooif6",
-    "捌壹捌麵館": "1e809u",
-    "八方雲集": "x0epu",
-    "豚將": "xlubm",
-    "三媽臭臭鍋": "s8xvm",
-    "佬地方牛排": "1apdmq",
-    "佳汶麵食館": "nhh1e",
-    "牛餃鏖鋒": "o51sy",
-    "陳家麵店": "cttb6",
-    "晶彩": "17scrm",
-    "寶妹": "18dsde",
-    "阿水飯麵館": "13mbj6",
-    "家薌牛肉麵": "1a636q",
-    "涵館": "14t6qq",
-    "港式燒臘便當": "uxe3m"
-}
-
 $(function() {
     $('.header').fadeIn(2500);
     var sum = 0;
@@ -49,7 +30,7 @@ function generateMenu() {
         $('#menu').removeClass('animated fadeInLeft');
     });
     $('#menu').show();
-    $.getJSON('https://api.myjson.com/bins/' + jsonPath[localStorage.getItem('menu')], function(data) {
+    $.getJSON('./Json/' + localStorage.getItem('menu'), function(data) {
         $("#menu").html("");
         var content = '<caption style = "font-size: 30px; font-weight: bold;">' + localStorage.getItem('menu') + '</caption>';
         content += "<tr><th>菜名</th><th>價錢</th><th>菜名</th><th>價錢</th></tr>";

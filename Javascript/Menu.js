@@ -52,7 +52,6 @@ function generateMenu(e) {
     $('.header').html(e.target.innerHTML);
     $('#menu').show();
     $('#introduce').hide();
-    console.log(e.target.id);
     $.getJSON('./Json/' + e.target.id + '.json', function(data) {
         $("#menu").html("");
         var content = "<tr><th>菜名</th><th>價錢</th><th>菜名</th><th>價錢</th></tr>";
