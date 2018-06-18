@@ -20,4 +20,12 @@ $(function() {
         if (isNaN($('#amount').val())) window.alert('Please input number');
         else $('#result').html($('#num' + Math.floor(Math.random() * $('#amount').val())).val());
     });
+
+    $('.to_another_page').first().click(function() {
+        window.location.href = './Menu.html';
+    });
+
+    $('#toChoose').click(function() {
+        window.location.href = './Choose.html';
+    });
 });

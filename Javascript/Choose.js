@@ -23,6 +23,14 @@ $(function() {
             }
         }
     });
+
+    $('.to_another_page').first().click(function() {
+        window.location.href = './Menu.html';
+    });
+
+    $('#toRandom').click(function() {
+        window.location.href = './Random.html';
+    });
 });
 
 function generateMenu() {
@@ -47,3 +55,4 @@ function generateMenu() {
         $("#menu").html(content);
     });
 }
+

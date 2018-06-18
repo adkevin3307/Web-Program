@@ -2,7 +2,7 @@ var animationEnd = "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimation
 
 $(function() {
     $('nav').mouseenter(function() {
-        $('#total_select').css('height', '280px').hover(
+        $('#total_select').css('height', '400px').hover(
             function() {
                 $('.modify_ul').fadeIn(500);
             },
@@ -25,7 +25,6 @@ $(function() {
     $('li').click(generateMenu);
 
     $('.to_another_page').first().click(function() {
-        localStorage.setItem('menu', $('.header').html());
         window.location.href = './Choose.html';
     });
 
@@ -50,6 +49,7 @@ $(function() {
 
 function generateMenu(e) {
     $('.header').html(e.target.innerHTML);
+    localStorage.setItem('menu', e.target.id);
     $('#menu').show();
     $('#introduce').hide();
     $.getJSON('./Json/' + e.target.id + '.json', function(data) {
