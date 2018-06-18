@@ -61,6 +61,7 @@ td {
 }
 #total_select {
     width: 100%;
+    display: inline-block;
 }
 .modify_ul {
     display: none;
