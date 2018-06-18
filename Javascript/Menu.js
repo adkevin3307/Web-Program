@@ -1,6 +1,7 @@
 var animationEnd = "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend";
 
 $(function() {
+    localStorage.removeItem('menu');
     $('nav').mouseenter(function() {
         $('#total_select').css('height', '400px').hover(
             function() {
