@@ -1,9 +1,8 @@
 var animationEnd = "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend";
 
 $(function() {
-    localStorage.removeItem('menu');
     $('nav').mouseenter(function() {
-        $('#total_select').css('height', '400px').hover(
+        $('#total_select').css('height', '280px').hover(
             function() {
                 $('.modify_ul').fadeIn(500);
             },
@@ -46,11 +45,16 @@ $(function() {
 
     changeInformation('#menu', '#introduce');
     changeInformation('#introduce', '#menu');
+
+    $("#map").click(function(e) {
+        window.open('https://www.google.com/maps/search/' + $('.header').html(), '_blank'); 
+    });
 });
 
 function generateMenu(e) {
     $('.header').html(e.target.innerHTML);
-    localStorage.setItem('menu', e.target.id);
+    $('#map').show();
+    localStorage.setItem('menu', $('.header').html());
     $('#menu').show();
     $('#introduce').hide();
     $.getJSON('./Json/' + e.target.id + '.json', function(data) {
