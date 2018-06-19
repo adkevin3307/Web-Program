@@ -54,7 +54,7 @@ $(function() {
 function generateMenu(e) {
     $('.header').html(e.target.innerHTML);
     $('#map').show();
-    localStorage.setItem('menu', $('.header').html());
+    localStorage.setItem('menu', e.target.id);
     $('#menu').show();
     $('#introduce').hide();
     $.getJSON('./Json/' + e.target.id + '.json', function(data) {
